@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Elegia&#39;s Thoughts</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on Elegia&#39;s Thoughts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 23 Aug 2020 20:39:36 +0800</lastBuildDate>
+    
+	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>任意模数二项卷积</title>
+      <link>http://example.org/posts/arbitrary-mod-binomial-convolution/</link>
+      <pubDate>Sun, 23 Aug 2020 20:39:36 +0800</pubDate>
+      
+      <guid>http://example.org/posts/arbitrary-mod-binomial-convolution/</guid>
+      <description>二项卷积：
+$$ c_n = \sum_k \binom n k a_k b_{n-k} $$
+当模数 $M$ 有一质因子 $p\le n$ 时，计算二项卷积无法直接变为 EGF 进行计算，因为 $n!$ 此时不可逆。
+ 我们考虑首先如何解决 $M = p^k$ 时的情况，然后可以用 CRT 合并各情况。
+我们记 $v_p(n)$ 是 $n!$ 中 $p$ 的质因子次数，$p$-阶乘为 $n!_p = p^{v_p(n)}$，反 $p$-阶乘为 $\overline{n!_p} = \frac{n!}{n!_p}$。
+那么由定义显然 $\overline{n!_p}$ 还是同余 $M$ 可逆的。我们先令 $\widehat a_n = a_n \cdot \left( \overline{n!_p} \right)^{-1} \bmod M$，我们可以得到
+$$ \widehat c_n \equiv \sum_k \left(\frac{n!_p}{k!p (n-k)!p}\right) \widehat a_k \widehat b{n-k} \equiv \sum_k p^{v_p(n)-v_p(k)-v_p(n-k)} \widehat a_k \widehat b{n-k} \pmod M $$</description>
+    </item>
+    
+  </channel>
+</rss>
