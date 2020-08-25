@@ -3,26 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>http://entropyincreaser.github.io/</loc>
     <lastmod>2020-08-23T20:39:36+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/</loc>
+    <loc>http://entropyincreaser.github.io/posts/</loc>
     <lastmod>2020-08-23T20:39:36+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/posts/arbitrary-mod-binomial-convolution/</loc>
+    <loc>http://entropyincreaser.github.io/posts/arbitrary-mod-binomial-convolution/</loc>
     <lastmod>2020-08-23T20:39:36+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>http://entropyincreaser.github.io/categories/</loc>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>http://entropyincreaser.github.io/tags/</loc>
   </url>
   
 </urlset>

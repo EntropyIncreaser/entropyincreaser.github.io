@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="" />
-  <meta property="og:url" content="http://example.org/posts/arbitrary-mod-binomial-convolution/" />
-  <link rel="canonical" href="http://example.org/posts/arbitrary-mod-binomial-convolution/" /><link rel="preload" href="/js/highlight.pack.js" as="script" /><link rel="alternate" type="application/atom+xml" href="http://example.org/index.xml" title="Elegia&#39;s Thoughts">
+  <meta property="og:url" content="http://entropyincreaser.github.io/posts/arbitrary-mod-binomial-convolution/" />
+  <link rel="canonical" href="http://entropyincreaser.github.io/posts/arbitrary-mod-binomial-convolution/" /><link rel="preload" href="/js/highlight.pack.js" as="script" /><link rel="alternate" type="application/atom+xml" href="http://entropyincreaser.github.io/index.xml" title="Elegia&#39;s Thoughts">
 
   <script type="application/ld+json">
   {
@@ -16,12 +16,12 @@
       "@type" : "BlogPosting",
       "mainEntityOfPage": {
            "@type": "WebPage",
-           "@id": "http:\/\/example.org\/"
+           "@id": "http:\/\/entropyincreaser.github.io\/"
       },
       "articleSection" : "posts",
       "name" : "任意模数二项卷积",
       "headline" : "任意模数二项卷积",
-      "description" : "二项卷积：\n$$ c_n = \\sum_k \\binom n k a_k b_{n-k} $$\n当模数 $M$ 有一质因子 $p\\le n$ 时，计算二项卷积无法直接变为 EGF 进行计算，因为 $n!$ 此时不可逆。\n 我们考虑首先如何解决 $M = p^k$ 时的情况，然后可以用 CRT 合并各情况。\n我们记 $v_p(n)$ 是 $n!$ 中 $p$ 的质因子次数，$p$-阶乘为 $n!_p = p^{v_p(n)}$，反 $p$-阶乘为 $\\overline{n!_p} = \\frac{n!}{n!_p}$。\n那么由定义显然 $\\overline{n!_p}$ 还是同余 $M$ 可逆的。我们先令 $\\widehat a_n = a_n \\cdot \\left( \\overline{n!_p} \\right)^{-1} \\bmod M$，我们可以得到\n$$ \\widehat c_n \\equiv \\sum_k \\left(\\frac{n!_p}{k!p (n-k)!p}\\right) \\widehat a_k \\widehat b{n-k} \\equiv \\sum_k p^{v_p(n)-v_p(k)-v_p(n-k)} \\widehat a_k \\widehat b{n-k} \\pmod M $$",
+      "description" : "二项卷积：\n$$ c_n = \\sum_k \\binom n k a_k b_{n-k} $$\n当模数 $M$ 有一质因子 $p\\le n$ 时，计算二项卷积无法直接变为 EGF 进行计算，因为 $n!$ 此时不可逆。\n 我们考虑首先如何解决 $M = p^k$ 时的情况，然后可以用 CRT 合并各情况。\n我们记 $v_p(n)$ 是 $n!$ 中 $p$ 的质因子次数，$p$-阶乘为 $n!_p = p^{v_p(n)}$，反 $p$-阶乘为 $\\overline{n!_p} = \\frac{n!}{n!_p}$。\n那么由定义显然 $\\overline{n!_p}$ 还是同余 $M$ 可逆的。我们先令 $\\widehat a_n = a_n \\cdot \\left( \\overline{n!_p} \\right)^{-1} \\bmod M$，我们可以得到\n$$ \\widehat c_n \\equiv \\sum_k \\left(\\frac{n!_p}{k!_p (n-k)!_p}\\right) \\widehat a_k \\widehat b_{n-k} \\equiv \\sum_k p^{v_p(n)-v_p(k)-v_p(n-k)} \\widehat a_k \\widehat b_{n-k} \\pmod M $$",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -31,7 +31,7 @@
       "copyrightYear" : "2020",
       "datePublished": "2020-08-23 20:39:36 \u002b0800 CST",
       "dateModified" : "2020-08-23 20:39:36 \u002b0800 CST",
-      "url" : "http:\/\/example.org\/posts\/arbitrary-mod-binomial-convolution\/",
+      "url" : "http:\/\/entropyincreaser.github.io\/posts\/arbitrary-mod-binomial-convolution\/",
       "keywords" : [  ]
   }
 </script>
@@ -44,14 +44,14 @@ $$ c_n = \sum_k \binom n k a_k b_{n-k} $$
  我们考虑首先如何解决 $M = p^k$ 时的情况，然后可以用 CRT 合并各情况。
 我们记 $v_p(n)$ 是 $n!$ 中 $p$ 的质因子次数，$p$-阶乘为 $n!_p = p^{v_p(n)}$，反 $p$-阶乘为 $\overline{n!_p} = \frac{n!}{n!_p}$。
 那么由定义显然 $\overline{n!_p}$ 还是同余 $M$ 可逆的。我们先令 $\widehat a_n = a_n \cdot \left( \overline{n!_p} \right)^{-1} \bmod M$，我们可以得到
-$$ \widehat c_n \equiv \sum_k \left(\frac{n!_p}{k!p (n-k)!p}\right) \widehat a_k \widehat b{n-k} \equiv \sum_k p^{v_p(n)-v_p(k)-v_p(n-k)} \widehat a_k \widehat b{n-k} \pmod M $$" />
+$$ \widehat c_n \equiv \sum_k \left(\frac{n!_p}{k!_p (n-k)!_p}\right) \widehat a_k \widehat b_{n-k} \equiv \sum_k p^{v_p(n)-v_p(k)-v_p(n-k)} \widehat a_k \widehat b_{n-k} \pmod M $$" />
   <meta name="description" content="二项卷积：
 $$ c_n = \sum_k \binom n k a_k b_{n-k} $$
 当模数 $M$ 有一质因子 $p\le n$ 时，计算二项卷积无法直接变为 EGF 进行计算，因为 $n!$ 此时不可逆。
  我们考虑首先如何解决 $M = p^k$ 时的情况，然后可以用 CRT 合并各情况。
 我们记 $v_p(n)$ 是 $n!$ 中 $p$ 的质因子次数，$p$-阶乘为 $n!_p = p^{v_p(n)}$，反 $p$-阶乘为 $\overline{n!_p} = \frac{n!}{n!_p}$。
 那么由定义显然 $\overline{n!_p}$ 还是同余 $M$ 可逆的。我们先令 $\widehat a_n = a_n \cdot \left( \overline{n!_p} \right)^{-1} \bmod M$，我们可以得到
-$$ \widehat c_n \equiv \sum_k \left(\frac{n!_p}{k!p (n-k)!p}\right) \widehat a_k \widehat b{n-k} \equiv \sum_k p^{v_p(n)-v_p(k)-v_p(n-k)} \widehat a_k \widehat b{n-k} \pmod M $$" />
+$$ \widehat c_n \equiv \sum_k \left(\frac{n!_p}{k!_p (n-k)!_p}\right) \widehat a_k \widehat b_{n-k} \equiv \sum_k p^{v_p(n)-v_p(k)-v_p(n-k)} \widehat a_k \widehat b_{n-k} \pmod M $$" />
   <meta property="og:locale" content="zh-cn" />
 
   <link rel="stylesheet" href="/css/flexboxgrid-6.3.1.min.css" />
@@ -124,7 +124,7 @@ $$</p>
 <p>我们记 $v_p(n)$ 是 $n!$ 中 $p$ 的质因子次数，$p$-阶乘为 $n!_p = p^{v_p(n)}$，反 $p$-阶乘为 $\overline{n!_p} = \frac{n!}{n!_p}$。</p>
 <p>那么由定义显然 $\overline{n!_p}$ 还是同余 $M$ 可逆的。我们先令 $\widehat a_n = a_n \cdot \left( \overline{n!_p} \right)^{-1} \bmod M$，我们可以得到</p>
 <p>$$
-\widehat c_n \equiv \sum_k \left(\frac{n!_p}{k!<em>p (n-k)!<em>p}\right) \widehat a_k \widehat b</em>{n-k} \equiv \sum_k p^{v_p(n)-v_p(k)-v_p(n-k)} \widehat a_k \widehat b</em>{n-k} \pmod M
+\widehat c_n \equiv \sum_k \left(\frac{n!_p}{k!_p (n-k)!_p}\right) \widehat a_k \widehat b_{n-k} \equiv \sum_k p^{v_p(n)-v_p(k)-v_p(n-k)} \widehat a_k \widehat b_{n-k} \pmod M
 $$</p>
 <p>而 $d = v_p(n)-v_p(k)-v_p(n-k)$ 可以推出就是在 $p$ 进制下，$n$ 减去 $k$ 时所发生的退位次数。（这个被叫做 Kummer 定理，过程略）</p>
 <p>而 $n$ 在 $p$ 进制下最多只有 $\log_p n$ 位可退，因此我们知道 $p^d \le n$，因此我们在<strong>不取模</strong>的情况下，可以得到 $\widehat c_n \le n \cdot nM^2 = n^2M^2$。</p>
