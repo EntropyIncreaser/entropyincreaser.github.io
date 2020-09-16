@@ -142,9 +142,13 @@ $$</p>
 &amp;=x^n[t^n]\frac1{1-t\mathrm e^{-t}(x\mathrm e^{-x})^{-1}}\\<br>
 &amp;=\sum_k [t^n] (t\mathrm e^{-t})^{n-k} x^k\mathrm e^{(n-k)x}\\<br>
 &amp;= \mathrm e^{nx}\sum_k [t^n] (t\mathrm e^{-t})^{n-k} (x\mathrm e^{-x})^k\\<br>
-&amp;= \mathrm e^{nx}\sum_{0\le k\le n} \frac{(n-k)^k}{k!} (x\mathrm e^{-x})^k\end{aligned}
-$$
-这其实不仅符合我们之前那个基变换的形式，同时还是多项式复合 $F(x\mathrm e^{-x})$ 的形式。理论上有通过复合的 $\Theta((n\log n)^{1.5})$ 甚至 $n^{1+o(1)}$ 的算法。<!-- raw HTML omitted -->大概都不实用<!-- raw HTML omitted --></p>
+&amp;= \mathrm e^{nx}\sum_{0\le k\le n} \frac{(k - n)^k}{k!} (x\mathrm e^{-x})^k\end{aligned}
+$$</p>
+<p>最终结果算出来应该是</p>
+<p>$$
+\sum_{0\le k\le n} \frac{(-k-1)^{n-k}}{(n-k)!} x^{n-k}\mathrm e^{(k+1)x} - \sum_{1\le k\le n} \frac{(-k)^{n-k}}{(n-k)!} x^{n-k} \mathrm e^{kx}
+$$</p>
+<p>这其实不仅符合我们之前那个基变换的形式，同时还是多项式复合 $F(x\mathrm e^{-x})$ 的形式。理论上有通过复合的 $\Theta((n\log n)^{1.5})$ 甚至 $n^{1+o(1)}$ 的算法。<!-- raw HTML omitted -->大概都不实用<!-- raw HTML omitted --></p>
 <h4 id="例-3-约束数列">例 3. 约束数列</h4>
 <blockquote>
 <p>给不降数列 $b$，$b_n = n$，问有多少正整数数列 $a_n$ 满足 $a$ 中有 $k$ 个数 $\le b_k$。</p>
@@ -154,9 +158,9 @@ $$
 \sum_k a_k x^{b_k} \mathrm e^{r_k x}
 $$</p>
 <p>事实上这应该依然是可以 $\Theta ((n\log n)^{1.5})$ 的，我们按照 $b_k$ 所在的 $[(j-1)B, jB)$ 先看做一个格子，然后每个格子里如果累加到了 $\frac n{\log n}$ 就再切分。这样的话大约有 $\Theta(\frac nB + B\log n)$ 个组，合并部分的复杂度显然不超过 $\Theta(nB\log^2 n)$，若干次求逆不超过 $\Theta((\frac nB + B\log n)\log n)$，发现在 $B=\Theta \left(\sqrt {\frac n{\log n}}\right)$ 的时候仍是平衡的 $\Theta((n\log n)^{1.5})$。</p>
-<p>对于原题来说，我们是在一个被 bound 住的路径下面做游走，同时一条路径的权值是对于每个高度 $h$，它所在这个高度下走的步长 $l_h$，那么路径的权值是 $\prod_h \frac1{l_h!}$。在如果横着走 $t$ 格，竖着走 $h$ 格的话，任意游走的权值和其实就是 $[x^t]\mathrm e^{ht}$。
+<p>对于原题来说，我们是在一个被 bound 住的路径下面做游走，同时一条路径的权值是对于每个高度 $h$，它所在这个高度下走的步长 $l_h$，那么路径的权值是 $\prod_h \frac1{l_h!}$。在如果横着走 $t$ 格，竖着走 $h$ 格的话，任意游走的权值和其实就是 $[x^t]\mathrm e^{hx}$。
 <img src="/images/xexpbasis.jpg" alt="image">
-注意到一个在 $(h,t)$ 位置的点往后对高度 $H$ 的贡献就是 $\mathrm e^{Ht} (x^t \mathrm e^{-ht})$，那么我们只需要进行不严格平移指数基变换。对于这个问题，我们不需要在外层分治了，因为里层的算法已经不是 $\tilde O(n)$ 的。值得注意的是现在还需要考虑一下块内的转移代价，暴力做已经是 $\Theta((sz)^2 \log n)$ 的（预处理所有幂听起来并不高效，而且这里多个 log 将会显示它不太影响复杂度），我们给每个 $sz &gt; C$ 的块再切开，那么就是块数增加 $O(n/C)$ 个，复杂度多贡献了 $\Theta(nC\log n + \frac{n^2}C\log n)$。取 $C = \Theta(\sqrt n)$ 足够。不是复杂度瓶颈。</p>
+注意到一个在 $(h,t)$ 位置的点往后对高度 $H$ 的贡献就是 $\mathrm e^{Hx} (x^t \mathrm e^{-hx})$，那么我们只需要进行不严格平移指数基变换。对于这个问题，我们不需要在外层分治了，因为里层的算法已经不是 $\tilde O(n)$ 的。值得注意的是现在还需要考虑一下块内的转移代价，暴力做已经是 $\Theta((sz)^2 \log n)$ 的（预处理所有幂听起来并不高效，而且这里多个 log 将会显示它不太影响复杂度），我们给每个 $sz &gt; C$ 的块再切开，那么就是块数增加 $O(n/C)$ 个，复杂度多贡献了 $\Theta(nC\log n + \frac{n^2}C\log n)$。取 $C = \Theta(\sqrt n)$ 足够。不是复杂度瓶颈。</p>
 <p>因此本问题也可以 $\Theta((n\log n)^{1.5})$ 解决。<!-- raw HTML omitted -->肯定跑得贼慢<!-- raw HTML omitted --></p>
 
         </div>
