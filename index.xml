@@ -6,10 +6,23 @@
     <description>Recent content on Elegia&#39;s Thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 23 Aug 2020 20:39:36 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2020 11:27:39 +0800</lastBuildDate>
     
 	<atom:link href="http://entropyincreaser.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>平移指数基变换</title>
+      <link>http://entropyincreaser.github.io/posts/x-exp-basis/</link>
+      <pubDate>Wed, 16 Sep 2020 11:27:39 +0800</pubDate>
+      
+      <guid>http://entropyincreaser.github.io/posts/x-exp-basis/</guid>
+      <description>最近思考了一下，这个问题其实至少有 $\Theta((n\log n)^{1.5})$ 的算法，但实际效率目前只有理论意义。被 $\Theta(n^2)$ 暴力吊打，所以也出不了什么题，就直接把这个 idea 拿出来了。
+定义平移指数基是这样一组基：$x^k \mathrm e^{r_k x}$，也就是说平移指数基变换是给一个数组 $a_k$ 和 $r_k$，求
+$$ \sum_k a_k x^k \mathrm e^{r_k x} $$
+我们考虑怎么算 $\sum _{0\le k &amp;lt; B} a_k x^k \mathrm e^{r_k x}$，注意如果我们能算这个，就可以转化成 $n/B$ 个问题，然后就是乘以 $x^B$，平移到对应的位置。
+我们现在考虑一个 EGF 转 OGF，那其实就是 $\sum_k a_k \sum_n \frac{n! r_k^{n-k} x^n}{(n-k)!}$，而 $\sum_n \frac{n! r_k^{n-k} x^n}{(n-k)!} = k!\sum_n \binom n k r_k^{n-k}x^n = \frac{k!x^k}{(1-r_kx)^{k+1}}$。因此我们可以直接分治 FFT 计算 $\sum_k \frac{a_k k!x^k}{(1-r_kx)^{k+1}}$，最后分母的次数是 $\Theta(B^2)$ 的，复杂度是 $\Theta(B^2\log^2 B + n\log n)$（最后要再求逆一次）</description>
+    </item>
     
     <item>
       <title>任意模数二项卷积</title>
